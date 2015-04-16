@@ -1,3 +1,11 @@
 import {Dispatcher} from 'flux';
 
-export const dispatcher = new Dispatcher();
+class CustomDispatcher extends Dispatcher {
+
+  dispatch(action) {
+    console.log(action.type, action.payload);
+    super.dispatch(action);
+  }
+};
+
+export const dispatcher = new CustomDispatcher();

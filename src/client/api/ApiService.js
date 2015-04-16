@@ -1,6 +1,6 @@
 import mockTodoList from './ApiMock';
-import {loadTodos} from '../actions/TodoActions';
+import {todosLoaded} from '../actions/TodoActions';
 
 export async function loadTodosFromApi() {
-  loadTodos(await mockTodoList());
+  todosLoaded(await mockTodoList());
 };

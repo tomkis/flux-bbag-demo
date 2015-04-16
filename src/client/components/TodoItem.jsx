@@ -1,5 +1,5 @@
 import React from 'react';
-import {toggleTodo} from '../actions/TodoActions';
+import {todoToggled} from '../actions/TodoActions';
 
 export default class TodoItem extends React.Component {
 
@@ -17,6 +17,6 @@ export default class TodoItem extends React.Component {
   }
 
   onToggleTodoItem() {
-    toggleTodo(this.props.todoIndex);
+    todoToggled(this.props.todoIndex);
   }
 };

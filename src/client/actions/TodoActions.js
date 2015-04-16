@@ -1,4 +1,5 @@
 import {dispatcher} from '../dispatcher/dispatcher';
+import {TODOS_LOADED, TODO_TOGGLED} from '../constants/ActionTypes';
 import mock from '../api/ApiMock';
 
 function dispatch(type, payload) {
@@ -8,14 +9,10 @@ function dispatch(type, payload) {
   });
 };
 
-export function addTodo(todo) {
-  dispatch('TODO_ADD', todo);
+export function todosLoaded(todos) {
+  dispatch(TODOS_LOADED, todos);
 };
 
-export function loadTodos(todos) {
-  dispatch('TODOS_LOADED', todos);
-};
-
-export function toggleTodo(todoIndex) {
-  dispatch('TODO_TOGGLE', todoIndex);
+export function todoToggled(todoIndex) {
+  dispatch(TODO_TOGGLED, todoIndex);
 };

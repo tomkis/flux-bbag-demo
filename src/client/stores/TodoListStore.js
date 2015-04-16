@@ -1,6 +1,7 @@
 import {EventEmitter2} from 'eventemitter2';
 import {List} from 'immutable';
 import {dispatcher} from '../dispatcher/dispatcher';
+import {TODOS_LOADED, TODO_TOGGLED} from '../constants/ActionTypes';
 
 const CHANGE_EVENT = 'change';
 
@@ -12,11 +13,11 @@ class TodoListStore {
 
     this.dispatchToken = dispatcher.register((action) => {
       switch (action.type) {
-        case 'TODOS_LOADED':
+        case TODOS_LOADED:
           this.onTodosLoaded(action.payload);
           break;
-        case 'TODO_TOGGLE':
-          this.onTodoToggle(action.payload);
+        case TODO_TOGGLED:
+          this.onTodoToggled(action.payload);
           break;
       }
     });
@@ -35,7 +36,7 @@ class TodoListStore {
     this.emitChange();
   }
 
-  onTodoToggle(todoIndex) {
+  onTodoToggled(todoIndex) {
     const completed = this
       .todos
       .get(todoIndex)
