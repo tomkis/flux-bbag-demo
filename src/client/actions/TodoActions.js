@@ -1,4 +1,4 @@
-import {dispatcher} from '../dispatcher/dispatcher';
+import {dispatcher} from '../context';
 import {TODOS_LOADED, TODO_TOGGLED} from '../constants/ActionTypes';
 import mock from '../api/ApiMock';
 

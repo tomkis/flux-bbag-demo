@@ -1,11 +1,10 @@
 import {EventEmitter2} from 'eventemitter2';
 import {List} from 'immutable';
-import {dispatcher} from '../dispatcher/dispatcher';
+import {dispatcher} from '../context';
 import {TODOS_LOADED, TODO_TOGGLED} from '../constants/ActionTypes';
-
 const CHANGE_EVENT = 'change';
 
-class TodoListStore {
+export default class TodoListStore {
 
   constructor() {
     this.emitter = new EventEmitter2();
@@ -51,5 +50,3 @@ class TodoListStore {
     this.emitChange();
   }
 };
-
-export const todoListStore = new TodoListStore();

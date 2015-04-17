@@ -1,6 +1,6 @@
 import React from 'react';
 import {loadTodosFromApi} from '../api/ApiService';
-import {todoListStore} from '../stores/TodoListStore';
+import {todoListStore} from '../context';
 import TodoItem from './TodoItem.jsx';
 
 export default class TodoList extends React.Component {

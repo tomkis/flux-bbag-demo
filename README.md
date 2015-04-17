@@ -1,10 +1,11 @@
 # Flux implementation overview
   - Component is just function of state/props, it listens on store's change event (TodoList.jsx)
+    - Reusable leafs of the tree don't need to be implemented Flux way -> TextField, ComboBox etc. (ideally you can install them via npm)
   - Action is just pair of name and payload
-  - Action creator is responsible for dispatching action to dispatcher, should be synchronous
+  - Action creator is responsible for dispatching action to dispatcher
   - Constants, use ES6 symbols (Clojure keywords) thx matt, never use strings because of possible "silent typos"
   - Flux is just architecture for building application logic not service layer (ApiService)
-  - Store holds state and encapsulates application logic (grep for new)
+  - Store holds state and encapsulates application logic, should be synchronous (grep for new)
   - Dispatcher dispatches actions to corresponding stores, waitFor method helps resolving dependencies (logging)
   - You don't need 2-w data binding, in fact 2-w data binding breaks unidirectional data flow (TodoItem -> onChange)
 
@@ -22,4 +23,4 @@
     - Have multiple stores, listen to single action on multiple stores, duplicate data and use waitFor to sync them together (if necessary)
     - Use brain when you are designing your stores :-)
       - DDD Eric Evans
-      - Bounded Context & Aggregate root ftw
+      - Bounded Context
