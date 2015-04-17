@@ -17,7 +17,6 @@
     - TODO_ITEM_ADDED -> action is fire&forget therefore there is no clear way how to find out if the action failed or not (optimistic async API vs blocking API call)
     - Application logic should be in stores and nowhere else
   - Forget about react-router, routing is application logic and therefore should be in store
-  - Don't use React context (which is very similar to angular's scope actually)
   - Store dependencies:
     - Bottleneck in Flux
     - Have multiple stores, listen to single action on multiple stores, duplicate data and use waitFor to sync them together (if necessary)
