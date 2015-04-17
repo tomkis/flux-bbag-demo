@@ -1,18 +1,24 @@
-import {dispatcher} from '../context';
 import {TODOS_LOADED, TODO_TOGGLED} from '../constants/ActionTypes';
 import mock from '../api/ApiMock';
 
-function dispatch(type, payload) {
-  dispatcher.dispatch({
-    type: type,
-    payload: payload
-  });
-};
+export default class TodoActions {
 
-export function todosLoaded(todos) {
-  dispatch(TODOS_LOADED, todos);
-};
+  constructor(dispatcher) {
+    this.dispatcher = dispatcher;
+  }
 
-export function todoToggled(todoIndex) {
-  dispatch(TODO_TOGGLED, todoIndex);
-};
+  dispatch(type, payload) {
+    this.dispatcher.dispatch({
+      type: type,
+      payload: payload
+    });
+  }
+
+  todosLoaded(todos) {
+    this.dispatch(TODOS_LOADED, todos);
+  }
+
+  todoToggled(todoIndex) {
+    this.dispatch(TODO_TOGGLED, todoIndex);
+  }
+}

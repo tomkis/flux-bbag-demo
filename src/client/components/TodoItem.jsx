@@ -1,7 +1,8 @@
 import React from 'react';
+import ControllerView from './ControllerView.jsx';
 import {todoToggled} from '../actions/TodoActions';
 
-export default class TodoItem extends React.Component {
+export default class TodoItem extends ControllerView {
 
   render() {
     return (
@@ -17,6 +18,6 @@ export default class TodoItem extends React.Component {
   }
 
   onToggleTodoItem() {
-    todoToggled(this.props.todoIndex);
+    this.getActionCreator('todoActions').todoToggled(this.props.todoIndex);
   }
 };

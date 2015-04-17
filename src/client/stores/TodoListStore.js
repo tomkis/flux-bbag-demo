@@ -1,12 +1,11 @@
 import {EventEmitter2} from 'eventemitter2';
 import {List} from 'immutable';
-import {dispatcher} from '../context';
 import {TODOS_LOADED, TODO_TOGGLED} from '../constants/ActionTypes';
 const CHANGE_EVENT = 'change';
 
 export default class TodoListStore {
 
-  constructor() {
+  constructor(dispatcher) {
     this.emitter = new EventEmitter2();
     this.todos = List.of();
 

@@ -1,24 +1,24 @@
 import React from 'react';
+import ControllerView from './ControllerView.jsx';
 import {loadTodosFromApi} from '../api/ApiService';
-import {todoListStore} from '../context';
 import TodoItem from './TodoItem.jsx';
 
-export default class TodoList extends React.Component {
+export default class TodoList extends ControllerView {
 
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
-      todos: todoListStore.todos
+      todos: this.getStore('todoListStore').todos
     };
   }
 
   componentWillMount() {
-    todoListStore.addChangeListener(this.onChange.bind(this));
+    this.getStore('todoListStore').addChangeListener(this.onChange.bind(this));
   }
 
   componentDidMount() {
-    loadTodosFromApi();
+    loadTodosFromApi(this.getActionCreator('todoActions'));
   }
 
   render() {
@@ -33,7 +33,7 @@ export default class TodoList extends React.Component {
 
   onChange() {
     this.setState({
-      todos: todoListStore.todos
+      todos: this.getStore('todoListStore').todos
     });
   }
 };
